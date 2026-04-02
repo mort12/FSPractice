@@ -1,0 +1,55 @@
+A gyakorlat a grid/felxbox és a Bootstrap alkalmazásáról szól.
+Segítségért használja a https://getbootstrap.com/ oldalt.
+
+
+Feladat:
+
+Hivatkozza be a Bootstrap CSS-ét a következő oldalakra:
+- index.html
+- contact.html
+- problem.html
+- students.html
+- subjects.html
+
+Bootstrap segítségével formázza meg az egyes oldalakat az alábbiak szerint.
+Szükség esetén a már felvett class-okat törölheti az elemekből és a meglévő css fájlok tartalmát is módosíthatja.
+
+subjects.html
+- a tárgyak táblázata legyen sötét témájú
+- a tárgy neve legyen egy link, amely a neki megfelelő tárgy aloldalára visz át
+- a kreditértéke a tárgynak legyen lekerekített kék badge-be rakva
+
+students.html
+- a hallgatók táblázata legyen világos témájú
+- legyenek a sorok egérmutató ráállás esetén kiemelve
+- ha egy hallgató átlaga 3.5 alatt van, akkor piros badge-be legyen az átlaga, ha e fölött van akkor legyen zöld színűben
+- amennyiben az oldal szélessége 800px alá esik, akkor a táblázat ne jelenjen meg; helyette egy bootstrap piros alert doboz jelenjen meg benne "Mobil nézet nem támogatott" szöveggel
+
+contact.html és problem.html
+- az input mezők legyenek bootstrap osztályok segítségével megformázva, bármelyik fajta tetszőlegesen választható
+- form-control
+- input-group
+- floating-labels
+
+
+Módosítsa a főoldalt (index.html) az alábbiak szerint.
+
+Navigáció
+A navigációs elemeket egészítse ki tetszőlegesen Bootstrap gomb stílussal. Az elemek legyenek középre igazítva. Használható teljes Bootstrap navigációs menüsáv is, de nem kötelező.
+
+Tartalom
+A főoldal tartalmi részét a következő elvárások, és az alábbi kép mentén alakítsa ki.
+A képet az elrendezésről a jelen fájl mellett találja (ws4_css2\main-layout.png).
+
+- az oldal tetején legyen egy carousel, amelyben képek váltsák egymást
+    - ne felejtse el bemásolni az ehhez szükséges script hivatkozást a body elemebe
+- alatta hozzon létre egy három oszlopból álló grid részt, amelyben:
+    - bal oszlop: Bootstrap card valamilyen tetszőleges tartalommal
+    - középső oszlop: gombok legyenek egymás alatt amibe programnyelvek legyenek tartalomként beleírva
+    - jobb oszlop: Bootstrap card valamilyen tetszőleges tartalommal
+- alatta hozzon létre egy nagy egybefüggő részt, amibe csak helykitöltés jelleggel lorem szöveget rakjon bele
+- az oldal alján legyen a footer rész, amiben 3 oszlopot alakítson ki
+    - bal oszlop: a fiktív magánegyetem adatait adja meg (tel, cím, email stb.)
+    - középső oszlop: egy google maps térképet ágyazzon ide be megfelelő méretben
+    - jobb oszlop: a navigációban található linkeket itt is sorolja fel egymás alatt
+

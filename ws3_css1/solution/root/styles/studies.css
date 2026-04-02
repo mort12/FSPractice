@@ -1,0 +1,21 @@
+table{
+    border: 4px solid black;
+    border-collapse: collapse;
+}
+
+td, th{
+    border: 2px dashed black;
+    text-align: center;
+}
+
+th{
+    font-size: x-large;
+}
+
+.row-highlight:hover{
+    background-color: orange;
+}
+/*alternative solution: */
+/* .studies-table tr:not(:first-child):hover {
+    background-color: pink;
+} */

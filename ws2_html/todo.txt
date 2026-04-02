@@ -1,0 +1,30 @@
+A feladat során egy CV-t kell elkészítenie statikus html elemekből.
+
+
+Feladat:
+
+A root mappában hozza létre az index.html fájlt, és genereálja bele egy üres html oldal template-jét.
+
+A head elemben töltse ki a title tag-et, és vegyen fel metaadatokat (description, viewport).
+Hozza létre az images mappát a root alá, és tegyen bele egy .ico fájlt, majd állítsa be ezt az oldalra faviconként.
+
+Vegyen fel tetszőleges html elemeket az oldalra, és készítse el ezek segítségével a CV-jét.
+Ezeket az elemeket próbálja ki a megolds során.
+table, tr, th, div, br, h1, h2, h3, hr, a, img, form, label, input, textarea, select, iframe
+A felsoroltakon túl is használhat elemeket.
+
+Mentsen az images mappába egy képet, és helyezze el ezt is az oldalon.
+Adjon hozzá egy formot az oldalhoz, ami a kapcsolatfelvételhez kéri be az adatokat (név, e-mail, üzenet).
+Használjon a comboboxot és radiobuttont is.
+Az oldal aljára ágyazzon be egy térképet a Google Maps oldalról.
+
+Hozza létre a subpages mappát a root alá.
+Ebben hozza létre az hobbies.html és studies.html oldalakat.
+
+Tegye lehetővé az oda-vissza navigációt a főoldal és az aloldalak között linkek segítségével.
+
+A hobbies oldalra vegyen fel egy táblázatot, amelynek legalább két sorát töltse ki.
+Ezekben hivatkozzon be képeket a https://picsum.photos/ oldalról és adjon melléjük lorem ipsum leírást.
+
+A studies oldalon is vegyen fel egy táblázatot, legalább három oszloppal.
+Ebben a táblázatban jelenítse meg a tanulmányait.

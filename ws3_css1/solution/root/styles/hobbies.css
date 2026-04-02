@@ -1,0 +1,16 @@
+.hobby-image{
+    width: 200px;
+    height: 200px;
+}
+
+.hobby-image:hover{
+    filter: saturate(200%);
+}
+
+.hobby-description:hover{
+    font-size: larger;
+}
+
+.hobby-description:hover{
+    font-size: larger;
+}

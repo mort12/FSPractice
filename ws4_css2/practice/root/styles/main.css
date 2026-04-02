@@ -1,0 +1,22 @@
+th {
+    color: rgb(32, 202, 244);
+    font-size: 25px;}
+
+.main-subject{
+    font-size: 20px;
+    color: crimson;    
+}
+
+.optional-subject{
+    font-size: 15px;
+    color: gold;
+}
+
+a{
+    /* text-decoration: none; */
+    color: inherit;
+}
+
+#programming-basics{
+    padding: 10px
+}

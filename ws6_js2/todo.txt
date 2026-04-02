@@ -1,0 +1,47 @@
+A feladatok során egy csatolt json file-ból fogja betölteni fejlesztők adatait,
+JavaSCript segítségével fogja feldolgozni azokat.
+
+Az app.js fájlban kell dolgoznia.
+Ebben talál két föggvényt, amelyek a mélyebb megértést segítik.
+A nodeListVSHTMLCollection() szemlélteti a különbséget a HTMLCollection és a NodeList frissítése között.
+A hideElement(id) függvény pedig bemutatja, hogy hogyan rejthet el egy elemet az oldalról.
+Ennek kipróbálásához vegye ki kommentezést a függvény meghívása elől.
+
+
+Feladat:
+
+Implementálja az addDeveloper(devloper) függvényt!
+A paraméterként kapott fejlesztőt adja a developers listához.
+
+Implementálja az orderDevelopersBySkillCount(developers) függvényt!
+A developers lista rendezéséhez használja a sort függvényt.
+
+Implementálja a getSkilledDevelopers(developers) függvényt!
+A developers listából a filter függvény segítségével szűrje ki azokat a fejlesztőket, akik 5-nél több skillel rendelkeznek.
+A kapott elemet adja vissza visszatérési értékként.
+
+Implementálja az getDevelopersWithSkillCount(developers) függvényt!
+A developers listából a map függvény segítségével szűrje ki a fejlesztő nevét és skilljeinke számát.
+A kapott elemet adja vissza visszatérési értékként.
+
+
+Implementálja a createList(header, items, id) függvényt!
+A paraméterként kapott ID alapján keresse meg az elemet a DOM-ban.
+Ebben hozzon létre egy h4 típusú elemet és írja bele a header paraméterben kapott értéket.
+Hozzon létre egy listát.
+Iteráljon végig az items paraméterben kapott listán és az elemeit adja hozzá az imént létrehozott listához.
+A listét adja hozzá a DOM-ban megtalált elemhez.
+
+Implementálja a highlightSkilledDevelopers() függvényt!
+Keresse ki a DOM-ból azokat a listaelemeket, amelyekben olyan fejlesztők találhatók, akik magasan képzettek.
+Ezeknek az elemeknek a stílusát állíta 'highlighted-item'-ra (ez már megtalálható a stlye.css-ben).
+A szűréshez használja fel a getSkilledDevelopers(developers) függvény visszatérési értékét.
+
+Implementálja a clearElement(id) függvényt!
+A paraméterben kapott ID alapján keresse meg az elemet és törölje a tartalmát.
+
+
+Implementáljon három függvényt, melyek mindegyike egy-egy adott grid cella feltöltéséért felelős (div1, div2, div3)!
+A három cellát tetszőleges, de különböző tartalommal töltse fel!
+Az egyikre alkalmazzon stílust a bootstrap.min.css-ből.
+A három függvényty hívja meg a fillGrid() függvényben!

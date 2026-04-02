@@ -1,0 +1,33 @@
+A gyakorlat során saját stílusokat fog létrehozni.
+Ezeket aztán hozzá fogja rendelni az egyes html elemekhez.
+
+
+Feladat:
+
+Hozzon létre egy styles mappát a root alá.
+Hozza létre ebben a main.css, hobbies.css és studies.css fájlokat.
+A main.css-t linkelje az összes html-hez, a másik kettőt értelem szerűen a párjaikhoz.
+
+Minden oldalra alkalmazandó stílusok:
+- h1 elemeknek legyenek pirosak
+- a navigációs linkek legyenek zöldek
+- labelek legyenek dőltbetűsek
+- a képek legyenek lekerekítve (10%)
+
+Főoldal:
+A name és az email inputok legyenek 250 pixel szélesek, bennük a szöveg legyen dőlt; használon class-t.
+A textarea mérete legyen 300x100 pixel, benne a szöveg szellős (2 pixel); használjon ID-t.
+A submit gomb a kattintás idejére kerüljön 2 pixellel lejjebb; használjon ID-t.
+A térkép legyen 600x450 pixel, lekerekített (15px); használjon ID-t.
+
+Studies oldal:
+A táblázatnak legyen egy vastag kerete (4px).
+A táblázaton belül a celláknak vékony szaggatott kerete legyen (2px).
+A cellákban a szöveg legyen középre igazítva.
+A headerben lévő szöveg mérete legyen x-large.
+Ha egy sor fölé visszük az egeret, akkor emeljük ki az egész sort narancssárgával, de a header soha ne legyen kiemelve.
+
+Hobbies oldal:
+A képek legyenek 200x200 pixel méretűek.
+Az egeret a képek fölé mozgatva változzon a szaturáció (200%).
+Az egeret a képhez tartozó szöveg fölé mozgatva növeljük meg annak betűméretét (larger).

@@ -1,0 +1,28 @@
+A feladatok megoldása során utazásokhoz fog regisztrációs felületet készíteni.
+
+
+Feladat:
+
+Hozzon létre három tömböt az app.js fájlban, amiben az utazásra regisztrált jelentkezőket tárolja.
+Ezek neve legyen: parisAttendees, iranAttendees, moonAttendees
+
+Írjon egy register() nevű függvényt, aminek segítségével lekéri a HTML odlalról a felhasználó által megadott adatokat.
+A függvény a register-btn eseménykezelője legyen.
+A radio gombokkal kiválasztott uticél szerinti listába mentse el a jelentkező adatait.
+Biztosítsa, hogy a jelentkezőnek minden mezőt kötelező legyen kitöltenie.
+Miután a listába mentette a jelentkező adatait, törölje a beviteli mezők tartalmát.
+
+Írjon egy updateList(elementId, attendees) függvényt, ami paraméterként kapja egy lista HTML elem ID-ját és a résztvevők listáját.
+A paraméterek alapján keresse meg a HTML elemet (listát), és frissítse a tartalmát (azaz a benne megjelnő jelentkezőket).
+
+Hívja meg az updateList(elementId, attendees) függvényt a megfelelő paraméterezéssel a register() függvényben.
+Ezzel tudja biztosítani, hogy új jelentkezés esetén frissüljenek a listák.
+
+Írjon egy highlightElement(e) függvényt, ami paraméterül kapja a kiváltó esemény objektumát.
+Az eseményt kiváltó elemnek módosítsa a stílusát a toggle() függvény segítségével, használja a highlight nevű classt.
+Programozottan adja hozzá a listaelemek létrehozásakor a highlightElement függvényt a click esemény eseménykezelőjeként.
+Ennek erdedményeként ha egy listaelemre kattintunk, akkor az pirosra vált, majd a következő kattintásra vissza.
+
+Írjon egy save() függvényt, amivel a localStorage-be menti a jelentkezők adatait a save-btn megnyomásakor.
+
+Írjon egy load() függvényt, amivel visszatölti a localStorage-ból a jelentkezők adatiat a load-btn megnyomásakor.

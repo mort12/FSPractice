@@ -1,0 +1,73 @@
+A feladatok során egy csatolt json file-ból fogja betölteni fejlesztők adatait.
+JavaSCript segítségével fogja feldolgozni azokat.
+Az app.js fájlban kell dolgoznia.
+
+INPUT
+A developers.json  szabványos json file tartalmazza a feldolgozoandó adatokat.
+Nézze meg a tartalmát, hogy megismerje az adatokkal, amivel dolgoznia kell!
+
+CSS
+A style.css pár előre definiált stílust tartalmaz, ezt sem szükséges kiegészítenie.
+A bootstrap.min.css a bootstrap offline használható verzióját tartalmazza, ezt használhatja majd a ZH megoldása során.
+Jelenleg nem szükséges mélyebben tanulmányoznia.
+
+HTML
+Az index.html tartalmazza a megoldás keretét, ezen nem szükséges módosítania.
+Itt találja a feladatok leírásást, amelyeket a gyakorlat során meg kell oldania.
+Ugyancsak itt kell majd megjelenítenie az eredményeket, ehhez alább kap segítséget.
+A css fájlok és a js fájl is be van hivatkozva, keresse meg és értelmezze ezeket a hivatkozásokat.
+
+JS
+Az app.js fájlban kell elkészítenie a gyakorlat megoldását.
+Az app.js tartalmazza az adatok importját a json fájlból.
+
+
+Feladat:
+
+Az index.html-ben található kérdésekre számítsa ki a választ egy-egy javascript fügvénnyel.
+Ezek eredményét jelenítse meg a felületen.
+
+Egy adott HTML element értékének beállításához nyújt segítséget az alábbi példa:
+const valueToShow = 'Hello, I am a value!';
+document.getElementById('elementId').textContent = valueToShow;
+
+A 7. feladatrésznél egy táblázatot kell feltöltenie, ehhez segítség a következő példa:
+let values = {
+    "Frontend Developer": 200000,
+    "Backend Developer": 600000,
+    "Full Stack Developer": 800000
+}
+function loadTableData(values) {  
+    const table = document.getElementById('tableId');
+    table.innerHTML = "";
+    for (let value in values) {
+        const row = table.insertRow();
+        const cell0 = row.insertCell(0);
+        const cell1 = row.insertCell(1);
+        cell0.textContent = value;
+        cell1.textContent = values[value];
+        cell1.classList.add('customCell'); // add a class for later styling
+    }
+}
+loadTableData(values);
+
+A táblázat celláinak formázása is lehetséges scriptből, pl:
+function formatTableStyle() {
+    const table = document.getElementById('tableId');
+    const cells = table.getElementsByClassName('customCell');
+    for (let i = 0; i < cells.length; i++) {
+        let cell = cells[i];
+        let cellStyle = cell.style;
+        let cellValue = cell.textContent;
+        if(cellValue > 700000){
+            cellStyle.color = 'red';
+        }
+        else if(cellValue > 400000){
+            cellStyle.color = 'yellow';
+        }
+        else{
+            cellStyle.color = 'green';
+        }
+    }
+}
+formatTableStyle();

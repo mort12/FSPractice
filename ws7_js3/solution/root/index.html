@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Developers</title>
+    <link rel="stylesheet" href="./bootstrap.min.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div>
+        <span>
+            <h1>Magnificent tours</h1>
+            <button id="save-btn" class="btn btn-primary" onclick="save()">Save</button>
+            <button id="load-btn" class="btn btn-warning" onclick="load()">Load</button>
+        </span>
+    </div>
+    <div id="tour-grid">
+        <div id="paris-container" class="grid-item attendee-list">
+            <h3>Paris</h3>
+            <br>
+            <ul id="paris-attendees"></ul>
+        </div>
+        <div id="iran-container" class="grid-item attendee-list">
+            <h3>Iran</h3>
+            <br>
+            <ul id="iran-attendees"></ul>
+        </div>
+        <div id="moon-container" class="grid-item attendee-list">
+            <h3>Moon</h3>
+            <br>
+            <ul id="moon-attendees"></ul>
+        </div>
+        <div id="registration-container" class="grid-item registration">
+            <h3>Registration</h3>
+            <label class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter your name">
+            <label class="form-label">Address</label>
+            <input type="text" class="form-control" id="address" placeholder="Enter your address">
+            <label class="form-label">E-mail</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter your email">
+            <label class="form-label">Destination</label>
+            <input type="radio" class="form-check-input" id="paris" name="tour" value="Paris"> Paris
+            <input type="radio" class="form-check-input" id="iran" name="tour" value="Iran"> Iran
+            <input type="radio" class="form-check-input" id="moon" name="tour" value="Moon"> Moon
+            <br>
+            <button id="register-btn" class="btn btn-success" onclick="register(event)">Register</button>
+        </div>
+    </div>
+    <script src="./app.js"></script>
+</body>
+
+</html>
