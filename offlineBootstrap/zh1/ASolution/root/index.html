@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Character Creation</title>
+    <meta name="description" content="Character Creation">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./styles/bootstrap.min.css">
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+
+<body>
+    <div id="main">
+        <div id="character-creation">
+            <h1>Character creation</h1>
+            <form id="character-form">
+                <input id="character-name" type="text" class="form-control mb-3" placeholder="Type name here" required>
+                <select id="tribe-selector" class="form-select mb-3" onchange="updateImage(event, 'tribe-img')">
+                    <option value="Apache">Apache</option>
+                    <option value="Iroquois">Iroquois</option>
+                    <option value="Lakota">Lakota</option>
+                </select>
+                <select id="weapon-selector" class="form-select mb-3" onchange="updateImage(event, 'weapon-img')">
+                    <option value="Bow">Bow</option>
+                    <option value="Spear">Spear</option>
+                    <option value="Tomahawk">Tomahawk</option>
+                </select>
+                <select id="animal-selector" class="form-select mb-3" onchange="updateImage(event, 'animal-img')">
+                    <option value="Bear">Bear</option>
+                    <option value="Eagle">Eagle</option>
+                    <option value="Wolf">Wolf</option>
+                </select>
+                <input type="submit" class="btn btn-primary" onclick="createCharacter(event)" value="Create">
+            </form>
+        </div>
+        <div id="weapon" class="image-container">
+            <img id="weapon-img" src="./images/Bow.png" alt="Weapon">
+        </div>
+        <div id="tribe" class="image-container">
+            <img id="tribe-img" src="./images/Apache.png" alt="Tribe">
+        </div>
+        <div id="animal" class="image-container">
+            <img id="animal-img" src="./images/Bear.png" alt="Animal">
+        </div>
+        <div id="characters" class="customization">
+            <h1>Characters</h1>
+            <button class="btn btn-success mb-3" onclick="saveCharacters()">Save</button>
+            <button class="btn btn-danger mb-3" onclick="loadCharacters()">Load</button>
+            <ul id="character-list" class="list-group">
+            </ul>
+        </div>
+    </div>
+
+    <script src="./scripts/app.js"></script>
+</body>
+
+</html>
