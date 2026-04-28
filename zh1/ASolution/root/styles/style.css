@@ -1,0 +1,62 @@
+
+#main {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 8px;
+}
+    
+#character-creation {
+    grid-column: span 2 / span 2;
+    grid-row: span 2 / span 2;
+}
+
+#weapon {
+    grid-column: span 3 / span 3;
+    grid-column-start: 3;
+}
+
+#tribe {
+    grid-column: span 2 / span 2;
+    grid-row: span 3 / span 3;
+    grid-column-start: 3;
+    grid-row-start: 2;
+}
+
+#animal {
+    grid-row: span 3 / span 3;
+    grid-column-start: 5;
+    grid-row-start: 2;
+}
+
+#characters {
+    grid-column: span 2 / span 2;
+    grid-row: span 2 / span 2;
+    grid-row-start: 3;
+}
+
+body {
+    background-color: goldenrod;
+}
+
+div {
+    padding: 10px;
+}
+
+img {
+    max-width: 60%;
+}
+
+.image-container{
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px dashed black;
+    border-radius: 15px;
+}
+
+#character-list {
+    max-height: 220px;
+    overflow-y: auto;
+}
