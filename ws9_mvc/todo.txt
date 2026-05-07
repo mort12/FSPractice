@@ -1,0 +1,249 @@
+A feladatok megoldása során okostelefonokkal fogunk dolgozni és kliens-szerver architektúrát építünk.
+Két projekre van szükségünk:
+- szerver oldali projekt -> adatbázis + API végpontok, C#, ASP.Net Core
+- kliens oldali projekt -> webes megjelenítés, HTML, JS, CSS
+
+Tanulmányozza a kapott kiinduló állományokat.
+A server nevű mappában találja a szerver oldali projektet. Ezt Visual Studio-ban nyissa meg.
+A client mappában pedig a kliens oldali projektet. Ezt Visual Studio Code-ban nyissa meg.
+
+A kliens felépítése a szokásos: index.html, app.js, style.css, offline bootstrap.
+A szerver projektben egy ASP.Net Core projetet talál. Ebben az adatbázis réteg teszt adatokkal már implementálva van.
+Az EntityFramework Core nugetek már hozzá vannak adva a projekthez.
+
+A .Net és a nugetek verzióját szükség esetén módosítsa, hogy az éppen aktuális környezetnek megfelelő legyen.
+Ehhez nyissa meg a projekt fájlt (kattintson rá duplán), majd módosítsa a verziókat.
+Ha változtatnia kell, akkor azt az összes nugeten tegye meg.
+A legmagasabb megfelelő verzió megtalálásához használja a NuGet Package Managert.
+Pl:
+<TargetFramework>net10.0</TargetFramework> -> <TargetFramework>net9.0</TargetFramework>
+<PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.7" /> -> <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.15" />
+
+Feladat:
+
+***CONTROLLER FELVÉTELE***
+A SmartphoneApiController fogja biztosítani a végponton keresztüli hozzáférést az adatbázisban tárolt adatokhoz.
+Az adatbázis a _repository fielden keresztül érhető el, az ISmartphoneRepository által kiajánlott metódusokkal.
+
+Származtassa le a SmartphoneApiController-t a Controller típusból.
+
+Egészítse ki a következő metódussal.
+
+public IActionResult Index()
+{
+    return View();
+}
+
+Most már rendelkezik egy controllerrel, azonben ezt még regisztrálnia kell.
+A Program.cs Main metódusát egészítse ki az alábbiakkal a már korábban megismert szabályok szerint.
+
+builder.Services.AddControllersWithViews();
+app.UseRouting();
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller}/{action}/{id?}"
+);
+
+Az utóbbi hívást tanulmányozza közelebbről is.
+Ezen már jól látszik, hogy patternben lévő kifejezés egy útvonalat jelöl: <controller neve>/<action>/<opcionális id paraméter>
+A mi esetünkben a SmartphoneApiController a controller, ezt a smartphoneapi néven érjük majd el.
+Ezen pedig jelenleg az egyetlen action az Index, ezt majd index néven hivatkozhatjuk az url-ben.
+
+Indítsa újra az alakalmazást. A http://localhost:5047/ oldalon ugyanazt kell látnia, mint az előbb.
+Navigáljon a http://localhost:5047/smartphoneapi oldalra, és gondolja át az eredményt.
+Navigáljon a http://localhost:5047/smartphoneapi/index oldalra, és vizsgálja meg az itt kapott eredményt is.
+Ezen az oldalon már van tartalom, azonban itt egy hibát kell látnia, ami arra panaszkodik, hogy az Index nevű view nem létezik.
+
+Tegyen egy breakpointot a SmartphoneApiController Index() metódusába, majd töltse újra az oldalt a böngészőben.
+Vegye észre, hogy a metódus az oldal (tehát az index nevű view) lekérésekor valóban meghívódik.
+Állítsa le az alakalmazást.
+Az imént hozzáadott breakpointot törölheti.
+
+
+***VIEW FELVÉTELE***
+Adjon egy új Views nevű mappát a szerver projekthez a 'Controllers' mappával egy szintre.
+Ebben hozzon létre egy új 'Index.cshtml' nevű fájlt.
+Indítsa újra az alakalmazást, és navigáljon a http://localhost:5047/smartphoneapi/index oldalra.
+Továbbra is a korábbi hibaüzenetet kell kapnia. Nézze meg a hibaüzenetben megjelenő útvonalat, ahol az alkalmazás keresei az 'Index.csthml' oldalt.
+Alakítsa ki a keresett mappastruktúrát a Views mappában.
+Indítsa újra az alakalmazást, és navigáljon a http://localhost:5047/smartphoneapi/index oldalra.
+Most egy üres oldalt kell kapnia.
+
+Másolja be a kliens projekt 'index.html' fájl tartalmát az 'Index.csthml' fájlba.
+Indítsa újra az alakalmazást, és navigáljon a http://localhost:5047/smartphoneapi/index oldalra.
+Most már az előző gyakrolaton megismert formot és listát kell látnia, mindenfajta formázás nélkül.
+Gondolja át, hogy miért nem jelenik meg az előző gyakorlaton látott bootstrap stílus az oldalon.
+Ellenőrizze a böngészőjében a console tartalmát is, ez segíthet a jelenség megérétésben.
+
+Az 'Index.cshtml' oldalból törölje a:
+- hivatkozásokat a css fájlokra
+- hivatkozást a javascript-re
+- a form gombjaihoz tartozó eseménykezelőt
+
+Indítsa újra az alakalmazást, és navigáljon a http://localhost:5047/smartphoneapi/index oldalra.
+Ellenőrizze a böngészőjében a console tartalmát is, a korábbi hibáknak el kell tűnniük.
+
+
+***VIEW MÓDOSÍTÁSA***
+Ha unja már, hogy nem az index a landing page az alkalmazás indítása után, akkor a 'launchSettings.json' fájlba illessze be az alábbi bejegyzést az 'applicationUrl' után.
+
+"launchUrl": "smartphoneapi/index",
+
+Az 'Index.cshtml' fájlban a body-t cserélje le a következőre:
+
+<body>
+    <h3>HTML list</h3>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <h3>Hint</h3>
+    @{
+        var text = "This is some C# code";
+        @:
+        <p>text</p>
+        @:
+        <p>@text</p>
+    }
+    <h3>C# generated list</h3>
+    
+</body>
+
+Indítsa újra az alakalmazást és nézze meg az index oldalon lévő változásokat!
+
+Hozzon létre egy listát a 'C# generated list' alatt és töltse elemekkel (egytől ötig, mint a példán).
+Ehhez írjon C# nyelven logikát, hasznája segítségül a 'Hint' alatt szereplő kódot.
+Váltani a C# ás a HTML nyelv között a '@' és '@:' karakterrel tud, amit akár egész blokkra is értelemezhet (@{}).
+
+
+***LIST VIEW GENERÁLÁS***
+Hozzon létre egy új view-t a SmartphoneApi mappában.
+Ehhez nyissa meg a mappán a context menu-t és válassza az 'Add > View' opciót.
+Válassza a 'Razor view' lehetőséget.
+A view neve legyen 'List', a template is legyen 'List', a model legyen 'Smartphone' a DbContext pedig legyen 'SmartphoneContext'.
+Hozza létre a view-t az 'Add' gomb megnyomásával (a generálás eltarthat egy ideig).
+Tanulmányozza a létrejött 'List.cshtml' tartalmát.
+Vegye észre, hogy a <html>, a <head> és a <body> elem is hiányzik.
+
+Adjon hozzá egy 'List' nevű metódust a SmartphoneApiController-hez, a már meglévő 'Index'-hez hasonlóan.
+Indítsa újra az alakalmazást és navigáljon a http://localhost:5047/smartphoneapi/list oldalra.
+Tanulmányozza kapott hibát. A probléma oka az, hogy nem adtuk meg a view-nak a megjelenítendő elemeket.
+
+Javítsa ki az imént létrehozott metódust úgy, hogy a létrehozandó View-nak paraméterül adja a _repository-ból ReadAll() hívással kapott listát.
+Indítsa újra az alakalmazást és navigáljon a http://localhost:5047/smartphoneapi/list oldalra. Most már látnia kell az adatokat.
+
+Vesse össze a 'List.cshtml' tartalmát és a böngészőben megjelent tartalmat.
+Vegye észre a model specifikálását a fájl elején. Nézze meg a Html elemen hívott metódusokat a tényleges HTML elemek generálásához.
+Nézze meg a Model objektumot az iterációban. Ez az elem a controllerben paraméterül kapott objektum.
+A táblázat head elemeinek létrehozásánál látható model.Model viszont egy konkrét telefon Model property-jére hivatkozik, aminek tartalma pl. "Samsung Galaxy S20".
+Fontos, hogy ezeket ne keverje össze a későbbiek során sem.
+A jobb megértés érdekében vegyen fel egy új <p> elemet a <h1>List</h1> fölé, és írja bele a paraméterként kapott model első elemének model-jét.
+Indítsa újra az alakalmazást, az új <p> elemben az 'iPhone 146' feliratot kell látnia.
+
+
+***NAVIGÁCIÓ***
+Az 'Index.cshtml'-ben az oldal aljára vegye fel az alábbi elemet. Ezzel fogjuk megoldani a navigációt.
+Ez a megoldás nem feltétlenül a legszebb, a gomb elemen azonban az action nem értelmezett, ezért ágyazzuk most gyakorlatilag egy üres form-ba.
+
+<form method="get" action="list">
+    <input type="submit" value="List phones">
+</form>
+
+Indítsa újra az alkalmazást, és próbálja ki a navigációt.
+
+
+***CREATE***
+Egy telefon feltöltését fogja megvalósítani. Ehhez egy formra van szükség, az adatok felvételéhez.
+A formot meg kell majd jeleníteni, ehhez egy GET requestre lesz szükségünk.
+A form adatait aztán be kell küldenünk a szerverre, ehhez egy POST requestre lesz szükségünk.
+Mind a két requestet ugyanannak a view-nak a segítségével oldjuk meg. Ez lesz a 'Create'.
+
+Hozza létre a 'Create.cshtml' fájlt az alábbi tartalommal.
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Smartphones</title>
+    <meta name="description" content="Smartphones">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <h1>Create</h1>
+    <hr />
+    <form action="create" method="post">
+        <label>Model&nbsp;</label>
+        <input name="model" type="text" placeholder="Enter model" />
+        <br />
+        <label>Price&nbsp;</label>
+        <input name="price" type="text" placeholder="Enter price" />
+        <br />
+        <label>Screen size&nbsp;</label>
+        <input name="screenSize" type="text" placeholder="Enter screen size" />
+        <br />
+        <label>Rating&nbsp;</label>
+        <input name="rating" type="text"placeholder="Enter rating" />
+        <br />
+        <label>Is available&nbsp;</label>
+        <input type="checkbox" name="isAvailable" value="true"/>
+        <input type="hidden" name="isAvailable" value="false"/>
+        <br />
+        <div class="form-group">
+            <input type="submit" value="Create" />
+        </div>
+    </form>
+</body>
+</html>
+
+Ez az oldal fogja tartlamazni a formot új telefon felvételéhez.
+Figyelje meg a form attribútumait. Az action - create,  a method - post. Tehát a form elküldése a create végponton fog történni, POST requesttel.
+
+Mindenek előtt azonban meg kell jeleníteni a formot. Ehhez vegye fel az új végpontot a SmartphoneApiController típusban.
+[HttpGet]
+public IActionResult Create()
+{
+    return View();
+}
+
+Indítsa újra az alamalmazást és navigáljon a http://localhost:5047/smartphoneapi/create oldalra.
+A formot kell látnia. A create gombra kattinva 405-ös hibakódot kell kapnia.
+
+A problémát az okozza, hogy a POST requestet még nem kezeltük le. Ehhez vegye fel a következő végpontot.
+Figyelje meg a benne található redirect hívást, amellyel biztosítható, hogy a listanézet jelenjen meg.
+[HttpPost]
+public IActionResult Create(Smartphone smartphone)
+{
+    _repository.Create(smartphone);
+    return RedirectToAction(nameof(List));
+}
+
+Tegyen egy breakpointot a POST request-et kezelő metódusba, hogy megnézhesse milyen paraméterket kap a böngészőből.
+Indítsa újra az alamalmazást és navigáljon a http://localhost:5047/smartphoneapi/create oldalra.
+Töltse ki a formot majd kattintson a 'Create' gombra.
+
+Probálja ki helyes adatokkal a feltöltést.
+Próbálja ki helytelen adatokkal is, pl: az ár mezőbe írja a NEPTUN kódját.
+
+
+***DELETE***
+A delete végpontot szintén GET request-tel fogjuk megoldani.
+Ehhez egészítse ki az eddigieknek megfelelően a SmartphoneApiController típust, egy Delete(int id) metódussal, ami GET requestet kezel.
+Ez a metódus paraméterként kapja a törlendő elem ID-ját. Törlés után a listanézetet jelenítse meg.
+
+A tölrést a listanézeten tegye lehetővé, a korábbi delete-hez generált linket cserélje a következőre.
+
+<a href="/smartphoneapi/delete/?id=@item.Id">Delete</a>
+
+Gondolja végig, hogy GET requesttel oldott meg törlést.
+Amennyiben POST requesttel szeretnénk megoldani, abban az esetben itt is egy formot kell felvennünk.
+
+<form action="delete" method="post">
+    <input type="hidden" name="id" value="@item.Id" />
+    <input type="submit" value="Delete" />
+</form>
