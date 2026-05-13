@@ -1,0 +1,11 @@
+#order-action {
+  max-width: 50%;
+  margin: 0 auto;
+}
+
+#order-list {
+  max-width: 50%;
+  margin: 0 auto;
+  max-height: 450px;
+  overflow-y: auto;
+}

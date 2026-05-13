@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>In crust we trust</title>
+    <meta name="description" content="Pizzas, pizzas, pizzas">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./styles/bootstrap.min.css">
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+
+<body>
+    <div id="pizza-action">
+        <form id="pizza-form" onsubmit="return false;">
+            <div class="mb-3">
+                <label for="pizza-id" class="form-label">ID</label>
+                <input type="text" class="form-control" id="pizza-id" readonly disabled>
+            </div>
+            <div class="mb-3">
+                <label for="pizza-name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="pizza-name" required>
+            </div>
+            <div class="mb-3">
+                <label for="pizza-description" class="form-label">Description</label>
+                <input type="text" class="form-control" id="pizza-description" required>
+            </div>
+            <div class="mb-3">
+                <label for="pizza-price" class="form-label">Price</label>
+                <input type="number" step="any" class="form-control" id="pizza-price" required>
+            </div>
+            <button type="button" id="reset-button" class="btn btn-info" onclick="resetForm()">Reset</button>
+            <button type="button" id="create-button" class="btn btn-success" onclick="createPizza()">Create pizza</button>
+            <button type="button" id="update-button" class="btn btn-warning" onclick="updatePizza()">Update pizza</button>
+            <button type="button" id="delete-button" class="btn btn-danger" onclick="deletePizza()">Delete pizza</button>
+        </form>
+    </div>
+    <div id="pizza-list">
+        <hr>
+        <h3>Pizzas</h3>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                </tr>
+            <tbody id="pizza-list-table-body">
+            </tbody>
+        </table>
+    </div>
+
+    <script src="./scripts/app.js" async defer></script>
+</body>
+
+</html>
